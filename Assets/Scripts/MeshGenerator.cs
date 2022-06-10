@@ -31,7 +31,7 @@ public static class MeshGenerator {
         //creating the map of vertices
         for (int y = 0; y < numVertsPerLine; y ++) {
             for (int x = 0; x < numVertsPerLine; x ++) {
-                //check if we're on the outside border fo the mesh
+                //check if we're on the outside border for the mesh
                 bool isOutOfMeshVertex = y == 0 || y == numVertsPerLine - 1 || x == 0 || x == numVertsPerLine - 1;
                 //check if we're skipping the verice for LOD stuff
                 bool isSkippedVertex = x > 2 && x < numVertsPerLine - 3 && y > 2 && y < numVertsPerLine - 3 && ((x - 2) % skipIncrement != 0 || (y - 2) % skipIncrement != 0);
@@ -46,10 +46,10 @@ public static class MeshGenerator {
             }
         }
 
-        //runs through each vertice according to LOD
+        //runs through each vertex according to LOD
         for (int y = 0; y < numVertsPerLine; y ++) {
             for (int x = 0; x < numVertsPerLine; x ++) {
-                //check if we're skipping the verice for LOD stuff
+                //check if we're skipping the vertex for LOD stuff
                 bool isSkippedVertex = x > 2 && x < numVertsPerLine - 3 && y > 2 && y < numVertsPerLine - 3 && ((x - 2) % skipIncrement != 0 || (y - 2) % skipIncrement != 0);
 
                 if (!isSkippedVertex) {
