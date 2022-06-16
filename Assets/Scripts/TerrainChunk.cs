@@ -10,7 +10,7 @@ public class TerrainChunk {
     //the coordinate of the terrain chunk
     public Vector2 coord;
 
-    //the mesh object and position of the terrain chunk in world space, sans z axis
+    //the mesh object and position of the terrain chunk in sample space
     GameObject meshObject;
     Vector2 sampleCenter;
     //the bounding box of the mesh
@@ -124,7 +124,6 @@ public class TerrainChunk {
                     if (lodMesh.hasMesh) {
                         previousLODIndex = lodIndex;
                         meshFilter.mesh = lodMesh.mesh;
-                        //meshCollider.sharedMesh = lodMesh.mesh;
                     } else if (!lodMesh.meshHasBeenRequested) {
                         lodMesh.RequestMesh(heightMap, meshSettings);
                     }
