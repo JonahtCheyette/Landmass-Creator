@@ -118,7 +118,7 @@ public class TerrainChunk {
                     }
                 }
 
-                //if we need to change the LOD, load it if we have it, else request it from the mapGeneratorClass
+                //if we need to change the LOD, load it if we have it, else request it from the meshGenerator Class
                 if (lodIndex != previousLODIndex) {
                     LODMesh lodMesh = lodMeshes[lodIndex];
                     if (lodMesh.hasMesh) {
