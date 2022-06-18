@@ -11,7 +11,7 @@ public static class MeshGenerator {
         int numVertsPerLine = meshSettings.numVertsPerLine;
 
         //Top left X and Z of the verticies in the soon-to-be-created meshData
-        Vector2 topLeft = new Vector2(-1, -1) * meshSettings.meshWorldSize / 2f;
+        Vector2 topLeft = new Vector2(-1, 1) * meshSettings.meshWorldSize / 2f;
 
         //creates a new meshdata with the correct amount of verticies for the level of detail specified
         MeshData meshData = new MeshData(numVertsPerLine, skipIncrement, meshSettings.useFlatShading);
@@ -64,7 +64,7 @@ public static class MeshGenerator {
                     int vertexIndex = vertexIndiciesMap[x, y];
                     //used to map the texture to the mesh
                     Vector2 percent = new Vector2(x - 1, y - 1) / (numVertsPerLine - 3);
-                    //we flip y in order to alighn the unity editor z axis with the programming y axis
+                    //we flip y in order to align the unity editor z axis with the programming y axis
                     Vector2 vertexPosition2D = topLeft + new Vector2(percent.x, -percent.y) * meshSettings.meshWorldSize;
                     //the height of the vertex at the given x, y coordinates
                     float height = heightMap[x, y];

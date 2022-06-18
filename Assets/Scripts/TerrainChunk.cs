@@ -144,15 +144,16 @@ public class TerrainChunk {
     public void UpdateCollisionMesh() {
         if (!hasSetCollider) {
             float sqrDstFromViewerToEdge = bounds.SqrDistance(viewerPosition);
+            bool viewerInsideBounds = bounds.Contains(viewerPosition);
 
             //if we haven't yet requested the meshData, we REALLY need to
-            if (sqrDstFromViewerToEdge < detailLevels[colliderLODIndex].sqrVisibleDistThreshhold) {
+            if (viewerInsideBounds || sqrDstFromViewerToEdge < detailLevels[colliderLODIndex].sqrVisibleDistThreshhold) {
                 if (!lodMeshes[colliderLODIndex].meshHasBeenRequested) {
                     lodMeshes[colliderLODIndex].RequestMesh(heightMap, meshSettings);
                 }
             }
 
-            if (sqrDstFromViewerToEdge < colliderGenerationDistanceThreshold * colliderGenerationDistanceThreshold) {
+            if (viewerInsideBounds || sqrDstFromViewerToEdge < colliderGenerationDistanceThreshold * colliderGenerationDistanceThreshold) {
                 if (lodMeshes[colliderLODIndex].hasMesh) {
                     meshCollider.sharedMesh = lodMeshes[colliderLODIndex].mesh;
                     hasSetCollider = true;

@@ -5,6 +5,7 @@ using System;
 
 public class ThreadedDataRequester : MonoBehaviour {
     //the Queues that hold the data for either meshes or heightMap and the appropriate callback
+    //the reason we use a queue is for the former, as unity won't let you do stuff like alter meshes outside of the main thread.
     static Queue<ThreadInfo> dataQueue = new Queue<ThreadInfo>();
 
     //The threading works by passing in a method generateData, and a method to be done when that data has been generated
