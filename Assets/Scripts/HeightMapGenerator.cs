@@ -24,7 +24,7 @@ public static class HeightMapGenerator {
             }
         }
 
-        //evaluating the heightcurve on everything and fincing the min and max values
+        //evaluating the heightcurve on everything and finding the min and max values
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 values[i, j] = heightCurve_threadSafe.Evaluate(values[i, j]) * settings.heightMultiplier;
